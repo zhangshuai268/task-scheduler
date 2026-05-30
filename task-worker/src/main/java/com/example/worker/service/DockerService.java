@@ -39,7 +39,7 @@ public class DockerService {
         downloadInputs(payload);
 
         List<String> cmd = buildDockerRunCommand(payload, containerName);
-        log.info("[{}] Docker command: {}", taskIdentity, String.join(" ", cmd));
+        log.info("[{}] Docker command: {} ", taskIdentity, String.join(" ", cmd));
 
         exec("docker", "rm", "-f", containerName);
 
