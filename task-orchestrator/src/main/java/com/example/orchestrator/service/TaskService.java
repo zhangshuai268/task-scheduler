@@ -33,7 +33,7 @@ public class TaskService {
     public Task createTask(TaskCreateRequest request) {
         TaskType taskType = getTaskType(request.getTypeCode());
         if (taskType.getStatus() != 1) {
-            throw new IllegalArgumentException("Task type is disabled: " + taskType.getName());
+            throw new IllegalArgumentException("Task type is disabled:" + taskType.getName());
         }
 
         Task task = new Task();
