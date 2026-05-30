@@ -1,0 +1,21 @@
+server:
+  port: 18201
+
+spring:
+  application:
+    name: task-worker
+  jackson:
+    default-property-inclusion: non_null
+
+# --- Docker 默认配置 ---
+executor:
+  docker:
+    shm-size: 8g
+    network: host
+
+# --- S3 配置 ---
+s3:
+  endpoint: http://localhost:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  region: us-east-1

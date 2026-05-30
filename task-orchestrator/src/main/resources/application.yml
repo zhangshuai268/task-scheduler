@@ -1,0 +1,29 @@
+server:
+  port: 18200
+
+spring:
+  application:
+    name: task-orchestrator
+  datasource:
+    url: jdbc:mysql://localhost:3306/task_scheduler?characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: your_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+  jackson:
+    default-property-inclusion: non_null
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+
+# --- 调度配置 ---
+scheduler:
+  poll-rate-ms: 5000
+  max-concurrent-tasks: 20
+  task-timeout-hours: 24
